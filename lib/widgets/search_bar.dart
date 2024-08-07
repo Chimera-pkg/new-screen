@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skribex_app/utils/constant/themes.dart';
 
 class SearchBarApp extends StatefulWidget {
   const SearchBarApp({super.key});

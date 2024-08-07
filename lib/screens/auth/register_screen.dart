@@ -21,7 +21,10 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: Padding(
         padding: EdgeInsets.all(4.w),
         child: Column(
@@ -45,7 +48,7 @@ class RegisterScreen extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 'MonaSans',
                             fontSize: 15,
-                            fontWeight: light,
+                            fontWeight: semiBold,
                             color: colorBlack),
                       ),
                       Text(
@@ -53,8 +56,8 @@ class RegisterScreen extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: 'MonaSans',
                             fontSize: 15,
-                            fontWeight: light,
-                            color: colorDarkBlue),
+                            fontWeight: semiBold,
+                            color: colorNavy),
                       )
                     ],
                   ),
@@ -121,7 +124,7 @@ class RegisterScreen extends StatelessWidget {
                         fontFamily: 'MonaSans',
                         fontSize: 15,
                         fontWeight: semiBold,
-                        color: colorDarkBlue),
+                        color: colorNavy),
                   ),
                 ),
               ],
@@ -141,7 +144,10 @@ class IndividualRegistration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(
           right: defaultPadding,
@@ -274,7 +280,10 @@ class CompanyRegistration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(
           right: defaultPadding,

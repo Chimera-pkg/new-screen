@@ -51,11 +51,12 @@ class ExpenseScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  gradient: LinearGradient(
-                    colors: [Colors.white, colorGrey],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: colorBackground,
+                  // gradient: LinearGradient(
+                  //   colors: [Colors.white, colorGrey],
+                  //   begin: Alignment.topLeft,
+                  //   end: Alignment.bottomRight,
+                  // ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -92,11 +93,12 @@ class ExpenseScreen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  gradient: LinearGradient(
-                    colors: [Colors.white, colorGrey],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: colorBackground,
+                  // gradient: LinearGradient(
+                  //   colors: [Colors.white, colorGrey],
+                  //   begin: Alignment.topLeft,
+                  //   end: Alignment.bottomRight,
+                  // ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -140,11 +142,12 @@ class ExpenseScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             // border: Border.all(width: 1),
                             borderRadius: BorderRadius.circular(12.0),
-                            gradient: LinearGradient(
-                              colors: [Colors.white, colorGrey],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
+                            color: colorBackground,
+                            // gradient: LinearGradient(
+                            //   colors: [Colors.white, colorGrey],
+                            //   begin: Alignment.topLeft,
+                            //   end: Alignment.bottomRight,
+                            // ),
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
@@ -184,11 +187,12 @@ class ExpenseScreen extends StatelessWidget {
                 height: 56,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  gradient: LinearGradient(
-                    colors: [Colors.white, colorGrey],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: colorBackground,
+                  // gradient: LinearGradient(
+                  //   colors: [Colors.white, colorGrey],
+                  //   begin: Alignment.topLeft,
+                  //   end: Alignment.bottomRight,
+                  // ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),

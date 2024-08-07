@@ -70,11 +70,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    gradient: LinearGradient(
-                      colors: [Colors.white, colorGrey],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
+                    color: colorBackground,
+                    // gradient: LinearGradient(
+                    //   colors: [Colors.white, colorGrey],
+                    //   begin: Alignment.topLeft,
+                    //   end: Alignment.bottomRight,
+                    // ),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
