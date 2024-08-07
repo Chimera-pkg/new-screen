@@ -213,6 +213,7 @@ class SelectUserAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorBackground,
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 7.w),
         child: Column(children: [

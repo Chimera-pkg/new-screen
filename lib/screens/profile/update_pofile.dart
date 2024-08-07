@@ -16,9 +16,9 @@ class UpdatePofileIndividual extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorPrimary,
+        backgroundColor: colorBackground,
       ),
-      backgroundColor: colorPrimary,
+      backgroundColor: colorBackground,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -127,7 +127,10 @@ class UpdatePofileCompany extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(

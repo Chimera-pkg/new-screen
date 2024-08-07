@@ -7,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:skribex_app/controllers/map_tracking_controller.dart';
+import 'package:skribex_app/utils/constant/themes.dart';
 import 'package:skribex_app/widgets/map_bottom_section.dart';
 
 class MapTrackScreen extends StatefulWidget {
@@ -28,6 +29,7 @@ class _MapPageState extends State<MapTrackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorBackground,
       appBar: appBar(),
       body: Column(
         children: [

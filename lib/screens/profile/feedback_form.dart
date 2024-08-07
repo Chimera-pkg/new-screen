@@ -9,7 +9,10 @@ class FeedbackForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
