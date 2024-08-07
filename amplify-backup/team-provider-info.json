@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-skribex-dev-100256-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975049940468:role/amplify-skribex-dev-100256-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975049940468:role/amplify-skribex-dev-100256-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-skribex-dev-100256-deployment",
+      "UnauthRoleName": "amplify-skribex-dev-100256-unauthRole",
+      "StackName": "amplify-skribex-dev-100256",
+      "StackId": "arn:aws:cloudformation:us-east-1:975049940468:stack/amplify-skribex-dev-100256/90aaf560-aa51-11ee-aa7a-128fcc0140d1",
+      "AmplifyAppId": "dstql67e3g6w0"
+    },
+    "categories": {
+      "auth": {
+        "skribexcdd2a03b": {}
+      }
+    }
+  }
+}

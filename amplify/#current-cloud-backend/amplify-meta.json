@@ -1,0 +1,89 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-skribex-dev-4fdd0-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975049940468:role/amplify-skribex-dev-4fdd0-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975049940468:role/amplify-skribex-dev-4fdd0-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-skribex-dev-4fdd0-deployment",
+      "UnauthRoleName": "amplify-skribex-dev-4fdd0-unauthRole",
+      "StackName": "amplify-skribex-dev-4fdd0",
+      "StackId": "arn:aws:cloudformation:us-east-1:975049940468:stack/amplify-skribex-dev-4fdd0/1f7b3180-2d22-11ef-ba6b-123bee103bcf",
+      "AmplifyAppId": "d3dnqvos5mysft"
+    }
+  },
+  "api": {
+    "skribex": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2025-06-22T14:44:52.320Z",
+              "description": "Expenses & Location API"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "l5cbypoo7vgs7exhsfd363c3jm",
+        "GraphQLAPIEndpointOutput": "https://4dsza43u25aazkwkkwz5xfpfga.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-2v6mpxjohncxbaqsh3ltuwuv7i"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-skribex-dev-4fdd0-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiskribex"
+      },
+      "lastPushTimeStamp": "2024-06-22T14:46:40.019Z",
+      "lastPushDirHash": "nRgSAl/LK96+lx5q/MMqlp4BL9I="
+    }
+  },
+  "auth": {
+    "skribex311258c9": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [
+          "GOOGLE"
+        ],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "lastPushTimeStamp": "2024-06-22T14:46:38.056Z",
+      "output": {
+        "UserPoolId": "us-east-1_vAWlOpGDD",
+        "AppClientIDWeb": "4hsq48h04b0vhrbu469ade6q2v",
+        "AppClientID": "520u42vn1u49ghpseet1dgdb9n",
+        "HostedUIDomain": "skribex-auth-dev",
+        "IdentityPoolId": "us-east-1:5850a4a9-1192-4ca6-a760-0fcb5db95f30",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:975049940468:userpool/us-east-1_vAWlOpGDD",
+        "IdentityPoolName": "skribex311258c9_identitypool_311258c9__dev",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"myapp://\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"myapp://\",\"http://localhost:3000/\"]}",
+        "UserPoolName": "skribex311258c9_userpool_311258c9"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-skribex-dev-4fdd0-deployment/amplify-cfn-templates/auth/skribex311258c9-cloudformation-template.json",
+        "logicalId": "authskribex311258c9"
+      },
+      "lastPushDirHash": "9WEMf33nynjbQwINXn8uW9ZB1v0="
+    }
+  }
+}

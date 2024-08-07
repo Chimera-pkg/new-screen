@@ -1,0 +1,27 @@
+type Expense @model {
+  id: ID!
+  date: AWSDateTime!
+  user: String!
+  amount: Float!
+  description: String!
+  receiptUrl: String!
+  thumbnailUrl: String
+}
+
+type Trip @model {
+  id: ID!
+  userId: ID!
+  startTime: AWSDateTime!
+  endTime: AWSDateTime
+  distance: Float!
+  screenshotUrl: String
+  stops: [Stop] @connection
+}
+
+type Stop {
+  id: ID!
+  tripId: ID!
+  latitude: Float!
+  longitude: Float!
+  duration: Int!
+}
