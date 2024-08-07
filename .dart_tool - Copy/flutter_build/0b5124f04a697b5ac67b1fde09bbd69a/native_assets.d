@@ -1,1 +1,0 @@
- D:\\Working\ Space\\Upwork\\skribex\\.dart_tool\\flutter_build\\0b5124f04a697b5ac67b1fde09bbd69a\\native_assets.yaml: 
