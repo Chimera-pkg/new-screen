@@ -82,8 +82,14 @@ class NavigationScreen extends StatelessWidget {
               // controller.changeTabIndex(1);
               if (Homecontroller.tabController.index == 0) {
                 Get.toNamed(RouteName.mapTracking);
-              } else {
+              } else if (Homecontroller.tabController.index == 1) {
                 Get.toNamed(RouteName.expense);
+              } else if (Homecontroller.tabController.index == 2) {
+                Get.toNamed(
+                    RouteName.clientForm); // Ganti dengan route yang sesuai
+              } else {
+                Get.toNamed(
+                    RouteName.toDoForm); // Ganti dengan route yang sesuai
               }
               // print("ini bukan");
             },

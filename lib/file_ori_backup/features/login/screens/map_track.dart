@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
-import 'package:skribex_app/file_ori_backup/configvariables.dart';
+// import 'package:skribex_app/file_ori_backup/configvariables.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:skribex_app/file_ori_backup/features/login/screens/signupsuccess.dart';

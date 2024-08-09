@@ -368,27 +368,27 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Client Meeting",
+                            "Lunch With Client",
                             style: TextStyle(
                                 fontFamily: 'MonaSans',
                                 fontSize: 14,
                                 fontWeight: regular,
                                 color: colorDarkGrey),
                           ),
-                          Text(
-                            "160\$",
-                            style: TextStyle(
-                                fontFamily: 'MonaSans',
-                                fontSize: 10,
-                                fontWeight: light,
-                                color: colorDarkGrey),
-                          )
+                          // Text(
+                          //   "160\$",
+                          //   style: TextStyle(
+                          //       fontFamily: 'MonaSans',
+                          //       fontSize: 10,
+                          //       fontWeight: light,
+                          //       color: colorDarkGrey),
+                          // )
                         ],
                       ),
                     ],
                   ),
                   Text(
-                    "23 Feb 2023 2:05 PM",
+                    "160\$",
                     style: TextStyle(
                         fontFamily: 'MonaSans',
                         fontSize: 13,
@@ -414,7 +414,7 @@ class HomePage extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: InkWell(
           onTap: () {
-            Get.toNamed(RouteName.expenseDetail);
+            Get.toNamed(RouteName.clientForm);
           },
           child: Container(
             height: 7.5.h,
@@ -439,7 +439,7 @@ class HomePage extends StatelessWidget {
                   Row(
                     children: [
                       SvgPicture.asset(
-                        "assets/icons/dollar.svg",
+                        "assets/icons/person.svg",
                         color: colorDarkGrey,
                         height: 5.5.w,
                       ),

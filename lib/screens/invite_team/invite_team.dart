@@ -15,7 +15,10 @@ class InviteTeam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: colorBackground,
+      appBar: AppBar(
+        backgroundColor: colorBackground,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Padding(

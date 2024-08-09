@@ -18,6 +18,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
       child: SearchAnchor(
         builder: (BuildContext context, SearchController controller) {
           return SearchBar(
+            backgroundColor: MaterialStateProperty.all<Color>(colorBackground),
             controller: controller,
             padding: const MaterialStatePropertyAll<EdgeInsets>(
                 EdgeInsets.symmetric(horizontal: 16.0)),
