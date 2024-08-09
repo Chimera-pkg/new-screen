@@ -1,20 +1,21 @@
-import 'dart:io';
+// import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:skribex_app/controllers/client_controller.dart';
+import 'package:skribex_app/controllers/to_do_controller.dart';
 import 'package:skribex_app/utils/constant/themes.dart';
 import 'package:skribex_app/widgets/button.dart';
+import 'package:skribex_app/widgets/date_time.dart';
+// import 'package:skribex_app/widgets/date_picker.dart';
+// import 'package:skribex_app/widgets/date_time.dart';
 import 'package:skribex_app/widgets/form_input_textfield.dart';
 
-class ClientScreen extends StatelessWidget {
-  ClientScreen({super.key});
+// import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+class ToDoScreen extends StatelessWidget {
+  ToDoScreen({super.key});
 
-  final controller = Get.find<ClientController>();
+  final controller = Get.find<ToDoController>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,64 +38,46 @@ class ClientScreen extends StatelessWidget {
                 height: 1.5.h,
               ),
               Text(
-                'Client Detail',
+                'New Task ToDo',
                 style: TextStyle(
                     fontFamily: 'MonaSans',
                     fontSize: 24,
                     fontWeight: bold,
                     color: colorBlack),
               ),
-              SizedBox(height: 8.0),
-              Text(
-                'Please Provide your detailed information. (* Required)',
-                style: TextStyle(
-                  fontFamily: 'MonaSans',
-                  fontSize: 16,
-                  fontWeight: medium,
-                  color: Colors.blueGrey[800],
-                ),
-              ),
               SizedBox(
                 height: 1.5.h,
               ),
               FormInputTextField(
-                label: "Name*",
+                label: "Title Task*",
                 inputController: controller.nameTextController,
               ),
               SizedBox(
                 height: 1.5.h,
               ),
               FormInputTextField(
-                label: "Address",
+                label: "Description",
                 inputController: controller.addressTextController,
               ),
               SizedBox(
                 height: 1.5.h,
               ),
-              FormInputNumberTextField(
-                label: "Zip Code",
-                inputController: controller.zipCodeTextController,
-              ),
-              SizedBox(
-                height: 1.5.h,
-              ),
-              FormInputTextField(
-                label: "Company Email*",
-                inputController: controller.emailTextController,
-              ),
-              SizedBox(
-                height: 1.5.h,
-              ),
-              FormInputNumberTextField(
-                label: "Phone",
-                inputController: controller.phoneTextController,
-              ),
-              SizedBox(
-                height: 1.5.h,
-              ),
-              FormInputTextField(
-                label: "Website",
-                inputController: controller.websiteTextController,
+              Obx(
+                () => DateTime(
+                  label: "Date",
+                  valueText: controller.isChekTime.value == true
+                      ? DateFormat('dd MMMM yyyy - HH:mm')
+                          .format(controller.tanggal)
+                      : "",
+                  valueStyle: TextStyle(
+                    color: controller.isChekTime.value == true
+                        ? colorBlack
+                        : colorPrimary,
+                  ),
+                  onPressed: () {
+                    controller.dateTimePicker(context);
+                  },
+                ),
               ),
               SizedBox(
                 height: 5.h,
@@ -104,7 +87,7 @@ class ClientScreen extends StatelessWidget {
                 width: 100.w,
                 onTap: () {},
                 colorBg: colorNavy,
-                label: " Update",
+                label: " Create",
                 textColor: colorWhite,
               ),
               SizedBox(

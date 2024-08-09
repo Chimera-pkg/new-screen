@@ -57,7 +57,8 @@ class _LoginState extends State<Login> {
           Navigator.of(context).pushReplacementNamed('/signupsuccess');
           //Navigator.of(context).pushReplacementNamed('/home');
         } else if (_signupData != null) {
-          Navigator.of(context).pushReplacementNamed('/confirm', arguments: _signupData);
+          Navigator.of(context)
+              .pushReplacementNamed('/confirm', arguments: _signupData);
         }
       },
       // ... other configurations ...

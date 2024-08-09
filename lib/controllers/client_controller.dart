@@ -5,11 +5,12 @@ import 'package:amplify_api/amplify_api.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 
 class ClientController extends GetxController {
-  final ImagePicker picker = ImagePicker();
-  String? selectedTrip;
-  final TextEditingController amountController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  XFile? imageFile;
+  final TextEditingController nameTextController = TextEditingController();
+  final TextEditingController addressTextController = TextEditingController();
+  final TextEditingController zipCodeTextController = TextEditingController();
+  final TextEditingController emailTextController = TextEditingController();
+  final TextEditingController phoneTextController = TextEditingController();
+  final TextEditingController websiteTextController = TextEditingController();
 
   Future<void> uploadClient(
       String amount, String description, XFile imageFile) async {
@@ -72,27 +73,5 @@ class ClientController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-  }
-
-  Future<void> pickImage() async {
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    // setState(() {
-    imageFile = image;
-    // });
-    update();
-  }
-
-  void chooseTrip(String? value) {
-    selectedTrip = value;
-    update();
-  }
-
-  Future<void> submitExpense() async {
-    if (imageFile == null) return;
-
-    final amount = amountController.text;
-    final description = descriptionController.text;
-
-    await uploadClient(amount, description, imageFile!);
   }
 }

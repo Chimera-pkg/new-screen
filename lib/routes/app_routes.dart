@@ -20,5 +20,5 @@ abstract class RouteName {
   static const expenseDetail = '/expense-detail';
   static const mapTracking = '/map-tracking';
   static const clientForm = '/client-form';
-  static const toDoForm = '/expense-detail';
+  static const toDoForm = '/to-do-detail';
 }

@@ -27,7 +27,7 @@ class FormInputTextField extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
-            color: colorPrimary,
+            color: colorBackground,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -39,7 +39,7 @@ class FormInputTextField extends StatelessWidget {
           ),
           child: TextField(
             controller: inputController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -78,7 +78,7 @@ class FormInputNumberTextField extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
-            color: colorPrimary,
+            color: colorBackground,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -94,7 +94,7 @@ class FormInputNumberTextField extends StatelessWidget {
             inputFormatters: <TextInputFormatter>[
               FilteringTextInputFormatter.digitsOnly
             ],
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 16.0,

@@ -8,7 +8,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 
-
 class ConfirmResetScreen extends StatefulWidget {
   final LoginData data;
   const ConfirmResetScreen({super.key, required this.data});
@@ -44,33 +43,32 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
     super.dispose();
   }
 
-  void _resetPassword(BuildContext context, dynamic signupData, String confirmationCode, String password) async {
+  void _resetPassword(BuildContext context, dynamic signupData,
+      String confirmationCode, String password) async {
     ResetPasswordResult res;
     try {
       print(signupData.name);
       print(confirmationCode);
-      res = await Amplify.Auth.confirmResetPassword(username: signupData.name!, newPassword: password, confirmationCode: confirmationCode);
+      res = await Amplify.Auth.confirmResetPassword(
+          username: signupData.name!,
+          newPassword: password,
+          confirmationCode: confirmationCode);
       print('Reset Result: ${res.isPasswordReset}');
       if (res.isPasswordReset) {
         print("Reset password complete");
-        if(mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                  backgroundColor: Colors.green,
-                  content: Text(
-                    "Password reset completed successfully, Please login",
-                    style: TextStyle(fontSize: 15),
-                  )
-              )
-          );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              backgroundColor: Colors.green,
+              content: Text(
+                "Password reset completed successfully, Please login",
+                style: TextStyle(fontSize: 15),
+              )));
         }
         Navigator.of(context).pushReplacementNamed("/login");
-      }
-      else {
+      } else {
         _showError(context, 'Password reset is not complete.');
       }
-    }
-    on AuthException catch (e) {
+    } on AuthException catch (e) {
       if (mounted) {
         _showError(context, e.message);
       }
@@ -79,7 +77,10 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
 
   void _showError(BuildContext context, String errorMessage) {
     if (mounted) {
-      final snackBar = SnackBar(content: Text(errorMessage, style: const TextStyle(fontSize: 15)), backgroundColor: Colors.redAccent,);
+      final snackBar = SnackBar(
+        content: Text(errorMessage, style: const TextStyle(fontSize: 15)),
+        backgroundColor: Colors.redAccent,
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
@@ -87,18 +88,17 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
   Future<void> _resendCode(BuildContext context, SignupData signupdata) async {
     try {
       print(signupdata.name);
-      final res1 = await Amplify.Auth.resendSignUpCode(username: signupdata.name!);
+      final res1 =
+          await Amplify.Auth.resendSignUpCode(username: signupdata.name!);
       print(res1.codeDeliveryDetails.destination.toString());
-      if(mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text("Confirmation code resent. Check you email box", style: TextStyle(fontSize: 15)),
-              backgroundColor: Colors.greenAccent,
-            )
-        );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Confirmation code resent. Check you email box",
+              style: TextStyle(fontSize: 15)),
+          backgroundColor: Colors.greenAccent,
+        ));
       }
-    } on AuthException catch (e)
-    {
+    } on AuthException catch (e) {
       if (mounted) {
         _showError(context, '${e.message} - ${e.recoverySuggestion}');
       }
@@ -109,7 +109,7 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: Center (
+      body: Center(
         child: SafeArea(
           minimum: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -119,7 +119,8 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
-                child: Padding(padding: const EdgeInsets.all(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [
                       const SizedBox(height: 10),
@@ -128,25 +129,29 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
                         obscureText: _obscureText,
                         decoration: InputDecoration(
                             filled: true,
-                            contentPadding: const EdgeInsets.symmetric(vertical: 4.0),
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 4.0),
                             prefixIcon: const Icon(Icons.lock),
                             labelText: "Enter new password",
                             border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(40))
-                            ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40))),
                             suffixIcon: GestureDetector(
                               onTap: () {
-                                  setState(() {
-                                    _obscureText = !_obscureText;
-                                  });
+                                setState(() {
+                                  _obscureText = !_obscureText;
+                                });
                               },
-                              child: Icon (
-                                _obscureText ? Icons.visibility : Icons.visibility_off,
+                              child: Icon(
+                                _obscureText
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                               ),
-                            )
-                        ),
+                            )),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       TextField(
                         controller: _controller,
                         decoration: const InputDecoration(
@@ -155,22 +160,29 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
                             prefixIcon: Icon(Icons.lock),
                             labelText: "Enter confirmation code",
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(40))
-                            )
-                        ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(40)))),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       MaterialButton(
-                        onPressed: _isEnabled ? () {
-                          _resetPassword(context, widget.data, _controller.text, _newPasswordController.text);
-                        } : null,
+                        onPressed: _isEnabled
+                            ? () {
+                                _resetPassword(
+                                    context,
+                                    widget.data,
+                                    _controller.text,
+                                    _newPasswordController.text);
+                              }
+                            : null,
                         elevation: 4,
                         color: Theme.of(context).primaryColor,
                         disabledColor: Colors.deepPurple.shade300,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                         ),
-                        child: const Text (
+                        child: const Text(
                           "RESET",
                           style: TextStyle(
                             color: Colors.white,
@@ -179,7 +191,8 @@ class _ConfirmResetScreenState extends State<ConfirmResetScreen> {
                         ),
                       ),
                     ],
-                  ),),
+                  ),
+                ),
               )
             ],
           ),

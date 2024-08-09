@@ -5,6 +5,7 @@ import 'package:skribex_app/bindings/invite_employee_binding.dart';
 import 'package:skribex_app/bindings/map_tracking_binding.dart';
 import 'package:skribex_app/bindings/navigation_binding.dart';
 import 'package:skribex_app/bindings/profile_binding.dart';
+import 'package:skribex_app/bindings/to_do_binding.dart';
 import 'package:skribex_app/screens/auth/confirm_register.dart';
 import 'package:skribex_app/screens/auth/confirm_reset_password.dart';
 import 'package:skribex_app/screens/client/client_screen.dart';
@@ -16,6 +17,7 @@ import 'package:skribex_app/screens/navigation/navigation_screen.dart';
 import 'package:skribex_app/screens/profile/feedback_form.dart';
 import 'package:skribex_app/screens/profile/profile_screen.dart';
 import 'package:skribex_app/screens/profile/update_pofile.dart';
+import 'package:skribex_app/screens/to_do/to_do_screen.dart';
 import '../bindings/forgot_password_binding.dart';
 import '../bindings/home_binding.dart';
 import '../bindings/login_binding.dart';
@@ -139,8 +141,8 @@ class AppPages {
     ),
     GetPage(
       name: RouteName.toDoForm,
-      page: () => MapTrackScreen(),
-      binding: MapTrackingBinding(),
+      page: () => ToDoScreen(),
+      binding: ToDoBinding(),
     ),
   ];
 }

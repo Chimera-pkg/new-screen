@@ -9,6 +9,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:skribex_app/controllers/expense_controller.dart';
 import 'package:skribex_app/utils/constant/themes.dart';
 import 'package:skribex_app/widgets/button.dart';
+import 'package:skribex_app/widgets/form_input_textfield.dart';
 
 class ExpenseScreen extends StatelessWidget {
   ExpenseScreen({super.key});
@@ -39,88 +40,14 @@ class ExpenseScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Amount*',
-                style: TextStyle(
-                    fontFamily: 'MonaSans',
-                    fontSize: 13,
-                    fontWeight: bold,
-                    color: colorSecondary),
-              ),
-              SizedBox(height: 8.0),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
-                  color: colorBackground,
-                  // gradient: LinearGradient(
-                  //   colors: [Colors.white, colorGrey],
-                  //   begin: Alignment.topLeft,
-                  //   end: Alignment.bottomRight,
-                  // ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: TextField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 14.0,
-                    ),
-                  ),
-                ),
+              FormInputNumberTextField(
+                label: "Amount",
+                inputController: controller.amountController,
               ),
               const SizedBox(height: 15),
-              Text(
-                'Description*',
-                style: TextStyle(
-                    fontFamily: 'MonaSans',
-                    fontSize: 13,
-                    fontWeight: bold,
-                    color: colorSecondary),
-              ),
-              SizedBox(height: 8.0),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12.0),
-                  color: colorBackground,
-                  // gradient: LinearGradient(
-                  //   colors: [Colors.white, colorGrey],
-                  //   begin: Alignment.topLeft,
-                  //   end: Alignment.bottomRight,
-                  // ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: TextField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly
-                  ],
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 14.0,
-                    ),
-                  ),
-                ),
+              FormInputTextField(
+                label: "Description",
+                inputController: controller.descriptionController,
               ),
               const SizedBox(height: 15),
               Text(

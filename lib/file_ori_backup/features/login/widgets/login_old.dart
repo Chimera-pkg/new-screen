@@ -6,11 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const users =  {
+const users = {
   'sri@gmail.com': '12345',
   'srik@gmail.com': '123',
 };
-
 
 class LoginOld extends StatefulWidget {
   const LoginOld({super.key});
@@ -26,18 +25,20 @@ class _LoginStateOld extends State<LoginOld> {
   bool _isGoogleSignedIn = false;
 
   Future<String?> _onLogin(LoginData data) async {
-    print('Name: ${data.name}, Password: ${data.password}, email: ${data.toString()}');
+    print(
+        'Name: ${data.name}, Password: ${data.password}, email: ${data.toString()}');
     print(_isSignedIn);
     try {
       // Check if a user is already signed in
       //final session = await Amplify.Auth.fetchAuthSession();
-      final res = await Amplify.Auth.signIn(username: data.name, password: data.password);
+      final res = await Amplify.Auth.signIn(
+          username: data.name, password: data.password);
       _isSignedIn = res.isSignedIn;
       print(_isSignedIn);
     } on AuthException catch (e) {
       print(e);
       //return e.message;
-      if(e.message == "A user is already signed in."){
+      if (e.message == "A user is already signed in.") {
         await Amplify.Auth.signOut();
         print('Signed out the current user session.');
         return "Signed out the current user session, sign in again.";
@@ -75,9 +76,12 @@ class _LoginStateOld extends State<LoginOld> {
     try {
       final res = await Amplify.Auth.resetPassword(username: email);
       print(res);
-      if(res.nextStep.updateStep == AuthResetPasswordStep.confirmResetPasswordWithCode) {
+      if (res.nextStep.updateStep ==
+          AuthResetPasswordStep.confirmResetPasswordWithCode) {
         print("Confirm reset password with code");
-        Navigator.of(context).pushReplacementNamed("/confirm-reset", arguments: LoginData(name: email, password: ""),
+        Navigator.of(context).pushReplacementNamed(
+          "/confirm-reset",
+          arguments: LoginData(name: email, password: ""),
         );
       }
 
@@ -87,14 +91,16 @@ class _LoginStateOld extends State<LoginOld> {
       return e.message;
     }
   }
-  Future<AuthUser>retrieveCurrentUser() async{
+
+  Future<AuthUser> retrieveCurrentUser() async {
     AuthUser authUser = await Amplify.Auth.getCurrentUser();
     return authUser;
   }
 
   Future<String?> _googleSignIn() async {
     try {
-      final result = await Amplify.Auth.signInWithWebUI(provider: AuthProvider.google);
+      final result =
+          await Amplify.Auth.signInWithWebUI(provider: AuthProvider.google);
       _isSignedIn = result.isSignedIn;
       if (_isSignedIn) {
         print("google sign is complete");
@@ -114,35 +120,35 @@ class _LoginStateOld extends State<LoginOld> {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: "SkribeX Login",
-      //logo: const AssetImage("assets/icons/transparent_logo.png"),
-      onLogin: _onLogin,
-      onRecoverPassword: (String email) => _onRecoverPassword(context, email),
-      onSignup: _onSignup,
-      theme: LoginTheme(
-        primaryColor: Theme.of(context).primaryColor,
-        titleStyle: const TextStyle(
-          // Set your custom style for the title
-          color: Colors.amber, // Choose the color to fit your theme
-          fontSize: 35, // Adjust the font size as needed
-          fontWeight: FontWeight.bold, // Choose the font weight
-          letterSpacing: 5, // Adjust letter spacing as desired
+        title: "SkribeX Login",
+        //logo: const AssetImage("assets/icons/transparent_logo.png"),
+        onLogin: _onLogin,
+        onRecoverPassword: (String email) => _onRecoverPassword(context, email),
+        onSignup: _onSignup,
+        theme: LoginTheme(
+          primaryColor: Theme.of(context).primaryColor,
+          titleStyle: const TextStyle(
+            // Set your custom style for the title
+            color: Colors.amber, // Choose the color to fit your theme
+            fontSize: 35, // Adjust the font size as needed
+            fontWeight: FontWeight.bold, // Choose the font weight
+            letterSpacing: 5, // Adjust letter spacing as desired
+          ),
         ),
-      ),
-      onSubmitAnimationCompleted: () {
-        if (_isSignedIn) {
-          Navigator.of(context).pushReplacementNamed('/signupsuccess');
-        } else if (_signupData != null) { // Check if _signupData is initialized
-          Navigator.of(context).pushReplacementNamed('/confirm', arguments: _signupData);
-        }
-      },
-      loginProviders: <LoginProvider>[
-      LoginProvider(
-                  icon: FontAwesomeIcons.google,
-                    label: 'Google',
-                    callback: _googleSignIn
-      ),
-      ]
-    );
+        onSubmitAnimationCompleted: () {
+          if (_isSignedIn) {
+            Navigator.of(context).pushReplacementNamed('/signupsuccess');
+          } else if (_signupData != null) {
+            // Check if _signupData is initialized
+            Navigator.of(context)
+                .pushReplacementNamed('/confirm', arguments: _signupData);
+          }
+        },
+        loginProviders: <LoginProvider>[
+          LoginProvider(
+              icon: FontAwesomeIcons.google,
+              label: 'Google',
+              callback: _googleSignIn),
+        ]);
   }
 }
